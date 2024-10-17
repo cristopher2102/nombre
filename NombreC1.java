@@ -536,18 +536,58 @@ public class NombreC1 implements GLEventListener, KeyListener {
         gl.glVertex3f(8f, 4.75f, -14.25f);
         gl.glColor3f(1f, 1f, 1f);
         gl.glVertex3f(8f, 0.5f, -14.25f);
+        
+        //pared 4
+        gl.glColor3f(1f, 0f, 0f);
+        gl.glVertex3f(2f, 0.5f, -24.0f);
+        gl.glColor3f(1f, 1f, 0f);
+        gl.glVertex3f(2f, 4.75f, -24.0f);
+        gl.glColor3f(1f, 0f, 1f);
+        gl.glVertex3f(6f, 4.75f, -24.0f);
+        gl.glColor3f(1f, 1f, 1f);
+        gl.glVertex3f(6f, 0.5f, -24.0f);
+        //
+        gl.glColor3f(1f, 0f, 0f);
+        gl.glVertex3f(2f, 0.5f, -24.25f);
+        gl.glColor3f(1f, 1f, 0f);
+        gl.glVertex3f(2f, 4.75f, -24.25f);
+        gl.glColor3f(1f, 0f, 1f);
+        gl.glVertex3f(6f, 4.75f, -24.25f);
+        gl.glColor3f(1f, 1f, 1f);
+        gl.glVertex3f(6f, 0.5f, -24.25f);
+        //
+        gl.glColor3f(1f, 0f, 0f);
+        gl.glVertex3f(6f, 0.5f, -24f);
+        gl.glColor3f(1f, 1f, 0f);
+        gl.glVertex3f(6f, 4.75f, -24f);
+        gl.glColor3f(1f, 0f, 1f);
+        gl.glVertex3f(6f, 4.75f, -24.25f);
+        gl.glColor3f(1f, 1f, 1f);
+        gl.glVertex3f(6f, 0.5f, -24.25f);
+        
+        //pared 5
+        gl.glColor3f(1f, 0f, 0f);
+        gl.glVertex3f(2f, 0.5f, -24.0f);
+        gl.glColor3f(1f, 1f, 0f);
+        gl.glVertex3f(2f, 4.75f, -24.0f);
+        gl.glColor3f(1f, 0f, 1f);
+        gl.glVertex3f(6f, 4.75f, -24.0f);
+        gl.glColor3f(1f, 1f, 1f);
+        gl.glVertex3f(6f, 0.5f, -24.0f);
 
         gl.glEnd();
+        
         
         // Dibuja la esfera
         gl.glPushMatrix();
         // Posición de la esfera frente a la cámara
-        float sphereX = (float)(tx + Math.cos(Math.toRadians(angle)));
-        float sphereZ = (float)(tz + Math.sin(Math.toRadians(angle)));
+        float sphereX = (float)(tx + Math.cos(Math.toRadians(angle)) * 2);
+        float sphereZ = (float)(tz + Math.sin(Math.toRadians(angle)) * 2);
         gl.glTranslatef(sphereX, (float) ty, sphereZ); 
-        drawSphere(gl, 1.0f, 30, 30); // Radio de la esfera y número de divisiones
+        gl.glColor3f(0.8f, 1.0f, 0.0f); // Color verde limón
+        dibujo(gl, 1.0f, 30, 30); // Radio de la esfera y número de divisiones
         gl.glPopMatrix();
-
+        
         gl.glFlush();
     }
 
@@ -604,7 +644,7 @@ public class NombreC1 implements GLEventListener, KeyListener {
         }
     }
 
-    private void drawSphere(GL gl, float radius, int slices, int stacks) {
+    private void dibujo(GL gl, float radius, int slices, int stacks) {
         GLU glu = new GLU();
         GLUquadric quadric = glu.gluNewQuadric();
         glu.gluQuadricDrawStyle(quadric, GLU.GLU_FILL);
